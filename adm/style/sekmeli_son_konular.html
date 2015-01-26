@@ -1,0 +1,65 @@
+<!-- INCLUDE overall_header.html -->
+<a name="maincontent"></a>
+	<h1>{L_ACP_SSK}&nbsp;{SSK_VERSION}</h1>
+	<p>{L_SSK_EXPLAIN}</p>
+
+<form id="acp_ssk" method="post" action="{U_ACTION}">
+	<fieldset>
+		<legend>{L_ACP_SSK_CONFIG}</legend>
+		<dl>
+			<dt><label for="ssk_index">{L_SSK_INDEX}</label></dt>
+			<dd><input type="radio" class="radio" id="ssk_index" name="ssk_index" value="1" <!-- IF SSK_INDEX -->checked="checked"<!-- ENDIF -->/> {L_ON} &nbsp; 
+				<input type="radio" class="radio" name="ssk_index" value="0" <!-- IF not SSK_INDEX -->checked="checked"<!-- ENDIF --> /> {L_OFF}</dd>
+		</dl>
+		<dl>
+			<dt><label for="ssk_location">{L_SSK_LOCATION}</label></dt>
+			<dd><input type="radio" class="radio" id="ssk_location" name="ssk_location" value="1" <!-- IF SSK_LOCATION -->checked="checked"<!-- ENDIF -->/> {L_FORUM_TOP} &nbsp; 
+				<input type="radio" class="radio" name="ssk_location" value="0" <!-- IF not SSK_LOCATION -->checked="checked"<!-- ENDIF --> /> {L_FORUM_BOTTOM}</dd>
+		</dl>
+	</fieldset>
+	<fieldset>
+		<dl>
+			<dt><label for="ssk_lasttopic">{L_NEW_TOPICS}</label></dt>
+			<dd><input type="radio" class="radio" id="ssk_lasttopic" name="ssk_lasttopic" value="1" <!-- IF SSK_LASTTOPIC -->checked="checked"<!-- ENDIF -->/> {L_ON} &nbsp; 
+				<input type="radio" class="radio" name="ssk_lasttopic" value="0" <!-- IF not SSK_LASTTOPIC -->checked="checked"<!-- ENDIF --> /> {L_OFF}</dd>
+		</dl>
+		<dl>
+			<dt><label for="ssk_lastrplytopic">{L_TOP_REPLY_TOPICS}</label></dt>
+			<dd><input type="radio" class="radio" id="ssk_lastrplytopic" name="ssk_lastrplytopic" value="1" <!-- IF SSK_LASTRPLYTOPIC -->checked="checked"<!-- ENDIF -->/> {L_ON} &nbsp; 
+				<input type="radio" class="radio" name="ssk_lastrplytopic" value="0" <!-- IF not SSK_LASTRPLYTOPIC -->checked="checked"<!-- ENDIF --> /> {L_OFF}</dd>
+		</dl>
+		<dl>
+			<dt><label for="ssk_topread">{L_TOP_READ_TOPIC}</label></dt>
+			<dd><input type="radio" class="radio" id="ssk_topread" name="ssk_topread" value="1" <!-- IF SSK_TOPREAD -->checked="checked"<!-- ENDIF -->/> {L_ON} &nbsp; 
+				<input type="radio" class="radio" name="ssk_topread" value="0" <!-- IF not SSK_TOPREAD -->checked="checked"<!-- ENDIF --> /> {L_OFF}</dd>
+		</dl>
+		<dl>
+			<dt><label for="ssk_topreply">{L_POPULAR_TOPICS}</label></dt>
+			<dd><input type="radio" class="radio" id="ssk_topreply" name="ssk_topreply" value="1" <!-- IF SSK_TOPREPLY -->checked="checked"<!-- ENDIF -->/> {L_ON} &nbsp; 
+				<input type="radio" class="radio" name="ssk_topreply" value="0" <!-- IF not SSK_TOPREPLY -->checked="checked"<!-- ENDIF --> /> {L_OFF}</dd>
+		</dl>
+		<dl>
+			<dt><label for="ssk_topuserpost">{L_TOP_POST_MEMBERS}</label></dt>
+			<dd><input type="radio" class="radio" id="ssk_topuserpost" name="ssk_topuserpost" value="1" <!-- IF SSK_TOPUSERPOST -->checked="checked"<!-- ENDIF -->/> {L_ON} &nbsp; 
+				<input type="radio" class="radio" name="ssk_topuserpost" value="0" <!-- IF not SSK_TOPUSERPOST -->checked="checked"<!-- ENDIF --> /> {L_OFF}</dd>
+		</dl>
+		<dl>
+			<dt><label for="ssk_newuser">{L_NEWS_MEMBERS}</label></dt>
+			<dd><input type="radio" class="radio" id="ssk_newuser" name="ssk_newuser" value="1" <!-- IF SSK_NEWUSER -->checked="checked"<!-- ENDIF -->/> {L_ON} &nbsp; 
+				<input type="radio" class="radio" name="ssk_newuser" value="0" <!-- IF not SSK_NEWUSER -->checked="checked"<!-- ENDIF --> /> {L_OFF}</dd>
+		</dl>
+		<dl>
+			<dt><label for="ssk_counter">{L_NUMBER_ENTRIES}</label><br /><span>{L_SSK_ENTRIES_EXPLAIN}</span></dt>
+			<dd><input class="tiny" name="ssk_counter" type="text" id="ssk_counter" value="{SSK_COUNTER}" maxlength="2" /></dd>
+		</dl>
+	</fieldset>
+	<fieldset>
+		<p class="submit-buttons">
+			<input class="button1" type="submit" id="submit" name="submit" value="{L_SUBMIT}" />&nbsp;
+			<input class="button2" type="reset" id="reset" name="reset" value="{L_RESET}" />
+			{S_FORM_TOKEN}
+		</p>
+	</fieldset>
+</form>
+
+<!-- INCLUDE overall_footer.html -->

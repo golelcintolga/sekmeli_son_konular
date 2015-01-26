@@ -1,0 +1,21 @@
+services:
+    tlg.sekmeli_son_konular.listener:
+        class: tlg\sekmeli_son_konular\event\listener
+        arguments:
+            - @tlg.sekmeli_son_konular.functions
+            - @config
+            - @template
+            - @user
+        tags:
+            - { name: event.listener }
+    tlg.sekmeli_son_konular.functions:
+        class: tlg\sekmeli_son_konular\core\sekmeli_son_konular
+        arguments:
+            - @auth
+            - @config
+            - @cache
+            - @template
+            - @user
+            - @dbal.conn
+            - %core.root_path%
+            - %core.php_ext%			

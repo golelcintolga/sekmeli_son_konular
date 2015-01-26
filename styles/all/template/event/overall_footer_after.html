@@ -1,0 +1,23 @@
+<script type="text/javascript">
+$(window).load(function(){
+	$(".tabs-content").eq(0).show();
+	
+	$("#tabs-title li").eq(0).addClass("activetab");
+	
+	$("#tabs-title li").click(function(){
+		var number = $(this).index();
+		$("#tabs-title li").removeClass("activetab");
+		$(".tabs-content").hide().eq(number).show();
+		$("#tabs-title li").eq(number).addClass("activetab");
+	});
+
+	$(".tabs-content-select").eq(0).show();
+	
+	$(".tabs-select option").eq(0).attr("selected","selected");
+	
+	$(".tabs-select option").click(function(){
+		var number = $(this).index();
+		$(".tabs-content-select").hide().eq(number).show();
+	});
+});
+</script>

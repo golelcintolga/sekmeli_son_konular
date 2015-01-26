@@ -1,0 +1,31 @@
+{
+	"name": "tlg/sekmeli_son_konular",
+	"type": "phpbb-extension",
+	"description": "Anasayfa da son konuları listeler. ( Displays last topics list on the index page. )",
+	"homepage": "https://github.com/golelcintolga/sekmeli_son_konular",
+	"version": "1.0.0",
+	"time": "2015-01-27",
+		"keywords": ["phpbb", "last", "topic", "list"],
+	"license": "GPL-2.0",
+	"authors": [{
+			"name": "Tolga",
+			"username": "Porsuk",
+			"email": "porsuk@hayatbanaguzel.hol.es",
+			"homepage": "http://hayatbanaguzel.hol.es",
+			"role": "Developer"
+			}],
+	"require": {
+		"php": ">=5.3.3"
+	},
+	"extra": {
+		"display-name": "Sekmeli Son Konular",
+		"soft-require": {
+			"phpbb/phpbb": ">=3.1.2,<3.2.*@dev"
+      },
+		"version-check": {
+				"host": "golelcintolga.github.io",
+			"directory": "/sekmeli_son_konular",
+			"filename": "version.json"
+		}
+	}
+}
