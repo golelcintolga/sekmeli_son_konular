@@ -1,7 +1,7 @@
 <h1>Sekmeli Son Konular ( Tabs Last Topic ) v1</h1>
 
 <p>Extension for phpBB 3.1</p>
-<p><img src="http://i.imgur.com/FGqAaB0.png" title="source: imgur.com" /></p>
+<p><img src="http://i.imgur.com/4HaOYdD.png" title="source: imgur.com" /></p>
 <h2>Installation</h2>
 <ol class="task-list">
   <li> Download the latest release and unzip it.</li>
