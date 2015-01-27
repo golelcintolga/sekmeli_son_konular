@@ -1,6 +1,6 @@
 <!-- INCLUDE overall_header.html -->
 <a name="maincontent"></a>
-	<h1>{L_ACP_SSK}&nbsp;{SSK_VERSION}</h1>
+	<h1>{L_ACP_SSK}</h1>
 	<p>{L_SSK_EXPLAIN}</p>
 
 <form id="acp_ssk" method="post" action="{U_ACTION}">
@@ -18,6 +18,7 @@
 		</dl>
 	</fieldset>
 	<fieldset>
+		<legend>{L_ACP_SSK_CONFIG}</legend>
 		<dl>
 			<dt><label for="ssk_lasttopic">{L_NEW_TOPICS}</label></dt>
 			<dd><input type="radio" class="radio" id="ssk_lasttopic" name="ssk_lasttopic" value="1" <!-- IF SSK_LASTTOPIC -->checked="checked"<!-- ENDIF -->/> {L_ON} &nbsp; 
@@ -54,6 +55,7 @@
 		</dl>
 	</fieldset>
 	<fieldset>
+		<legend>{L_ACP_SUBMIT_CHANGES}</legend>
 		<p class="submit-buttons">
 			<input class="button1" type="submit" id="submit" name="submit" value="{L_SUBMIT}" />&nbsp;
 			<input class="button2" type="reset" id="reset" name="reset" value="{L_RESET}" />
