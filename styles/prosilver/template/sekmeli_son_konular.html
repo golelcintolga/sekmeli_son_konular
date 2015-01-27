@@ -1,0 +1,92 @@
+<div id="son_konular">
+
+	<!-- IF TOP_POST_DISPLAY or NEWUSER_DISPLAY -->
+	<div class="forabg select-table">
+		<div class="header" style="margin-bottom:5px;">
+		<select class="tabs-select">
+			<!-- IF TOP_POST_DISPLAY --><option>{L_TOP_POST_MEMBERS}</option><!-- ENDIF -->
+			<!-- IF NEWUSER_DISPLAY --><option>{L_NEWS_MEMBERS}</option><!-- ENDIF -->
+		</select>
+		</div>
+		<!-- IF TOP_POST_DISPLAY -->
+		<div id="user-post-panel" class="tabs-content-select">
+		<ul class="topiclist forums">
+			  <!-- BEGIN user_post -->
+			  <li class="row">{user_post.NUMBER}{user_post.USER_NAME} <small>{user_post.POST}</small></li>
+			  <!-- END user_post -->
+			</ul>
+		</div>
+		<!-- ENDIF -->
+
+		<!-- IF NEWUSER_DISPLAY -->
+		<div id="last-member-panel" class="tabs-content-select">
+		<ul class="topiclist forums">
+			  <!-- BEGIN last_member -->
+			  <li class="row">{last_member.NUMBER}{last_member.USER_NAME} <small>{last_member.USER_REGDATE}</small></li>
+			  <!-- END last_member -->
+			</ul>
+		</div>
+		<!-- ENDIF -->
+	</div>
+	<!-- ENDIF -->
+
+	<div class="forabg ssk-table"<!-- IF TOP_POST_DISPLAY or NEWUSER_DISPLAY --> style="margin-right: 245px;"<!-- ENDIF -->>
+		<div id="tabs-title"  class="header">
+			<ul>
+				<!-- IF LAST_TOPIC_DISPLAY -->
+				<li>{L_NEW_TOPICS}</li>
+				<!-- ENDIF -->
+				<!-- IF LAST_RPLYTOPIC_DISPLAY -->
+				<li>{L_TOP_REPLY_TOPICS}</li>
+				<!-- ENDIF -->
+				<!-- IF TOP_READ_DISPLAY -->
+				<li>{L_TOP_READ_TOPIC}</li>
+				<!-- ENDIF -->
+				<!-- IF TOP_REPLY_DISPLAY -->
+				<li>{L_POPULAR_TOPICS}</li>
+				<!-- ENDIF -->
+			</ul>
+		</div>
+
+	<!-- IF LAST_TOPIC_DISPLAY -->
+	<div  id="new_topic-panel" class="tabs-content">
+	<ul class="topiclist forums">
+		  <!-- BEGIN new_topic -->
+		  <li class="row">{new_topic.NUMBER}<a href="{new_topic.U_VIEW_TOPIC}" title="{new_topic.TOPIC_TITLE}">{new_topic.TOPIC_TITLE}</a>&nbsp;&nbsp;<small>{new_topic.USER_NAME} - {new_topic.TOPIC_TIME}</small></li>
+		  <!-- END new_topic -->
+	</ul>
+	</div>
+	<!-- ENDIF -->
+	
+	<!-- IF LAST_RPLYTOPIC_DISPLAY -->
+	<div id="reply_topic-panel" class="tabs-content">
+	<ul class="topiclist forums">
+		  <!-- BEGIN reply_topic -->
+		  <li class="row">{reply_topic.NUMBER}<a href="{reply_topic.U_VIEW_TOPIC}" title="{reply_topic.TOPIC_TITLE}">{reply_topic.TOPIC_TITLE}</a>&nbsp;&nbsp;<small>{reply_topic.USER_NAME} - {reply_topic.TOPIC_TIME}</small></li>
+		  <!-- END reply_topic -->
+		</ul>	
+	</div>
+	<!-- ENDIF -->
+	
+	<!-- IF TOP_READ_DISPLAY -->
+	<div id="read_topic-panel" class="tabs-content">
+		<ul class="topiclist forums">
+		  <!-- BEGIN read_topic -->
+		  <li class="row">{read_topic.NUMBER}<a href="{read_topic.U_VIEW_TOPIC}" title="{read_topic.TOPIC_TITLE}">{read_topic.TOPIC_TITLE}</a>&nbsp;&nbsp;<small>{read_topic.TOPIC_READY}</small></li>
+		  <!-- END read_topic -->
+		</ul>
+	</div>
+	<!-- ENDIF -->
+	
+	<!-- IF TOP_REPLY_DISPLAY -->
+	<div id="pop_topic-panel" class="tabs-content">
+		<ul class="topiclist forums">
+		  <!-- BEGIN pop_topic -->
+		  <li class="row">{pop_topic.NUMBER}<a href="{pop_topic.U_VIEW_TOPIC}" title="{pop_topic.TOPIC_TITLE}">{pop_topic.TOPIC_TITLE}</a>&nbsp;&nbsp;<small>{pop_topic.TOPIC_REPLY}</small></li>
+		  <!-- END pop_topic -->
+		</ul>
+	</div>
+	<!-- ENDIF -->
+</div>
+
+</div>
