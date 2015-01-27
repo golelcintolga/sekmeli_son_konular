@@ -2,7 +2,7 @@
 
 <p>Extension for phpBB 3.1</p>
 <p>
-<img src="http://i.imgur.com/ylInDQX.png" />
+<img src="http://i.imgur.com/65456454.png" />
 </p>
 <h2>Installation</h2>
 <ol class="task-list">
