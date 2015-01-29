@@ -1,3 +1,4 @@
+<!-- IF S_SSK_DISPLAY -->
 <script type="text/javascript">
 $(window).load(function(){
 	$(".tabs-content").eq(0).show();
@@ -7,7 +8,7 @@ $(window).load(function(){
 	$("#tabs-title li").click(function(){
 		var number = $(this).index();
 		$("#tabs-title li").removeClass("activetab");
-		$(".tabs-content").hide().eq(number).show(); // .show(); veya .fadeIn("slow");
+		$(".tabs-content").hide().eq(number).fadeIn("slow"); // .show(); veya .fadeIn("slow");
 		$("#tabs-title li").eq(number).addClass("activetab");
 	});
 
@@ -17,7 +18,8 @@ $(window).load(function(){
 	
 	$(".tabs-select option").click(function(){
 		var number = $(this).index();
-		$(".tabs-content-select").hide().eq(number).show(); // .show(); veya .fadeIn("slow");
+		$(".tabs-content-select").hide().eq(number).fadeIn("slow"); // .show(); veya .fadeIn("slow");
 	});
 });
 </script>
+<!-- ENDIF -->
