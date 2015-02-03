@@ -16,8 +16,8 @@ $(window).load(function(){
 	
 	$(".tabs-select option").eq(0).attr("selected","selected");
 	
-	$(".tabs-select option").click(function(){
-		var number = $(this).index();
+	$(".tabs-select").change(function(){
+		var number = $('option:selected').index();
 		$(".tabs-content-select").hide().eq(number).fadeIn("slow"); // .show(); veya .fadeIn("slow");
 	});
 });
