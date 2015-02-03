@@ -104,7 +104,7 @@ class sekmeli_son_konular
 			$number = 1;
 		if (($last_rply_topic = $this->cache->get('_ssk_last_rplytopic')) === false)
 		{
-		$sql = 'SELECT topic_id, forum_id, topic_title, topic_last_post_time, topic_posts_approved, topic_last_poster_id, topic_last_poster_name, topic_last_poster_colour
+		$sql = 'SELECT topic_id, forum_id, topic_title, topic_last_post_id, topic_last_post_time, topic_posts_approved, topic_last_poster_id, topic_last_poster_name, topic_last_poster_colour
 				FROM ' . TOPICS_TABLE . '
 				WHERE  topic_posts_approved > 1 '.$izin.'
 				ORDER BY topic_last_post_time  DESC';
@@ -114,6 +114,7 @@ class sekmeli_son_konular
 				'topic_id' => $row['topic_id'],
 				'forum_id' => $row['forum_id'],
 				'topic_title' => $row['topic_title'],
+				'topic_last_post_id' => $row['topic_last_post_id'],
 				'topic_last_post_time' => $row['topic_last_post_time'],
 				'topic_last_poster_id' => $row['topic_last_poster_id'],
 				'topic_last_poster_name' => $row['topic_last_poster_name'],
@@ -128,7 +129,7 @@ class sekmeli_son_konular
 				if($number%2 == 0 ){$color = $this->color_1;}else{$color = $this->color_2;}
 				$this->template->assign_block_vars('reply_topic',array(
 				'NUMBER'=>'<span class="list-number" style="background-color:'.$color.';">'.$number.'</span>',
-				'U_VIEW_TOPIC'	=> append_sid("{$this->root_path}viewtopic.$this->phpEx", 'f=' . $row['forum_id'] . '&amp;t=' . $row['topic_id']),
+				'U_VIEW_TOPIC'	=> append_sid("{$this->root_path}viewtopic.$this->phpEx", 'f=' . $row['forum_id'] . '&amp;t=' . $row['topic_id']) . '#p' . $row['topic_last_post_id'],
 				'TOPIC_TITLE'	=> censor_text($row['topic_title']),
 				'TOPIC_TIME'	=> sprintf($this->user->lang['TOPIC_DATE'], $this->user->format_date($row['topic_last_post_time'])),
 				'USER_NAME'	=> sprintf($this->user->lang['POST_AUTHOR'],get_username_string('no_profile', $row['topic_last_poster_id'], $row['topic_last_poster_name'], $row['topic_last_poster_colour'])),
