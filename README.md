@@ -17,3 +17,5 @@
   <li>To permanently uninstall, click Delete Data, then delete the sekmeli_son_konular
   folder from phpBB/ext/tlg/</li>
 </ol>
+
+<a href="https://scrutinizer-ci.com/g/golelcintolga/sekmeli_son_konular/"><img src="https://scrutinizer-ci.com/g/golelcintolga/sekmeli_son_konular/badges/quality-score.png?b=master" alt="Scrutinizer Code Quality" /></a>
