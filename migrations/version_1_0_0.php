@@ -24,6 +24,8 @@ class version_1_0_0 extends \phpbb\db\migration\migration
 			array('config.add', array('ssk_newuser', '1')),
 			array('config.add', array('ssk_counter', '5')),
 			array('config.add', array('ssk_location', '0')),
+			array('config.add', array('ssk_wordlimit', '50')),
+			array('config.add', array('ssk_cache', '300')),
 			// Add the ACP module
 			array('module.add', array('acp', 'ACP_CAT_DOT_MODS', 'ACP_SSK')),
 			array('module.add', array(

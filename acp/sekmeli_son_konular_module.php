@@ -19,13 +19,12 @@ class sekmeli_son_konular_module
 	function main($id, $mode)
 	{
 		global $config, $db, $user, $auth, $template, $cache;
-		global $phpbb_root_path, $phpbb_admin_path, $table_prefix, $phpEx;
+		global $phpbb_root_path, $phpbb_admin_path;
 
 		add_form_key('acp_ssk');
 
-		$this->title = $user->lang['ACP_SSK_CONFIG'];
+		$this->page_title = 'ACP_SSK';
 		$this->tpl_name = 'sekmeli_son_konular';
-
 
 	  	$submit 	= (isset($_POST['submit'])) ? true : false;
 		if ($submit)
@@ -43,6 +42,8 @@ class sekmeli_son_konular_module
 			set_config('ssk_newuser', request_var('ssk_newuser', 1));
 			set_config('ssk_counter', request_var('ssk_counter', 5));
 			set_config('ssk_location', request_var('ssk_location', 0));
+			set_config('ssk_wordlimit', request_var('ssk_wordlimit', 50));
+			set_config('ssk_cache', request_var('ssk_cache', 300));
 			
 			$cache->destroy('_ssk_last_topic');
 			$cache->destroy('_ssk_last_rplytopic');
@@ -51,7 +52,7 @@ class sekmeli_son_konular_module
 			$cache->destroy('_ssk_top_user_post');
 			$cache->destroy('_ssk_new_user');
 		
-			trigger_error($user->lang['AYARLAR_GUNCELLENDI'] . adm_back_link($this->u_action));
+			trigger_error($user->lang['UPDATE_CONFIG'] . adm_back_link($this->u_action));
 		}
 		$template->assign_vars(array(
 			'SSK_INDEX'				=> $config['ssk_index'],
@@ -61,8 +62,10 @@ class sekmeli_son_konular_module
 			'SSK_TOPREPLY'		=> $config['ssk_topreply'],
 			'SSK_TOPUSERPOST'	=> $config['ssk_topuserpost'],
 			'SSK_NEWUSER'		=> $config['ssk_newuser'],
-			'SSK_COUNTER'		=> $config['ssk_counter'],
+			'SSK_COUNTER'			=> $config['ssk_counter'],
 			'SSK_LOCATION'		=> $config['ssk_location'],
+			'SSK_WORDLIMIT'		=> $config['ssk_wordlimit'],
+			'SSK_CACHE'				=> $config['ssk_cache'],
 		));
 	}
 }

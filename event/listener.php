@@ -61,7 +61,6 @@ class listener implements EventSubscriberInterface
 		$this->template->assign_vars(array(
 			'S_SSK_DISPLAY'	=>	$this->config['ssk_index'],
 			'S_SSK_LOCATION'	=> $this->config['ssk_location'],
-			'SAYI' => $this->config['ssk_counter'],
 		));
 	}
 

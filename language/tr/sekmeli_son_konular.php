@@ -20,15 +20,19 @@ if (empty($lang) || !is_array($lang))
 $lang = array_merge($lang, array(
 	'ACP_SSK' => 'Sekmeli Son Konular',
 	'ACP_SSK_CONFIG' => 'Ayarlar',
-	'AYARLAR_GUNCELLENDI'=> 'Ayarlar Güncellendi',
+	'UPDATE_CONFIG'=> 'Ayarlar Güncellendi',
 	
 	'SSK_INDEX' => 'Sekmeli Son Konular',
 	'SSK_EXPLAIN' => 'Anasayfa da son konuları listeler',
 	'SSK_LOCATION'=> 'Gösterilecek Konum',
 	'FORUM_TOP' => 'Forumun Üstünde',
 	'FORUM_BOTTOM' => 'Forumun Altında',
-	'NUMBER_ENTRIES' => 'Gösterilecek girdi sayısı',
+	'NUMBER_ENTRIES' => 'Gösterilecek Girdi Sayısı',
 	'SSK_ENTRIES_EXPLAIN' => 'Listede gösterilecek konu sayısını giriniz.',
+	'SSK_WORDLIMIT' => 'Uzunluk Değeri',
+	'SSK_WORDLIMIT_EXPLAIN' => 'Gösterilecek cümlenin kaç harf olacağını belirler.<br><b>Not:</b>Boşluklarda dahildir.',
+	'SSK_CACHE' => 'Önbellekleme',
+	'SSK_CACHE_EXPLAIN' => 'Önbelleğe alınan verinin önbellekte kalma ve yenilenme süresini belirler.Varsayılan süre 5 dakikadır.<br>Süreyi saniye olarak giriniz.',
 
 	'NEW_TOPICS'		=> 'Yeni Mesajlar',
 	'TOP_REPLY_TOPICS'	=> 'Cevaplanan Son Konular',
