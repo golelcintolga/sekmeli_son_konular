@@ -8,7 +8,7 @@ $(window).load(function(){
 	$("#tabs-title li").click(function(){
 		var number = $(this).index();
 		$("#tabs-title li").removeClass("activetab");
-		$(".tabs-content").hide().eq(number).fadeIn("slow"); // .show(); veya .fadeIn("slow");
+		$(".tabs-content").hide().eq(number).show(); // .show(); veya .fadeIn("slow");
 		$("#tabs-title li").eq(number).addClass("activetab");
 	});
 
@@ -18,7 +18,7 @@ $(window).load(function(){
 	
 	$(".tabs-select").change(function(){
 		var number = $('option:selected').index();
-		$(".tabs-content-select").hide().eq(number).fadeIn("slow"); // .show(); veya .fadeIn("slow");
+		$(".tabs-content-select").hide().eq(number).show(); // .show(); veya .fadeIn("slow");
 	});
 });
 </script>

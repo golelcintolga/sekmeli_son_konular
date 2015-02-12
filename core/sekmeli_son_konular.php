@@ -10,14 +10,6 @@
 
 namespace tlg\sekmeli_son_konular\core;
 
-/**
- * @ignore
- */
-if (!defined('IN_PHPBB'))
-{
-	exit;
-}
-
 class sekmeli_son_konular
 {
 	protected $auth;
@@ -41,7 +33,6 @@ class sekmeli_son_konular
 		$this->phpEx			= $php_ext;
 		
 	}
-	public $color_1 = '#383838', $color_2 = '#00639E'; 
 
 //Yeni konular baslar.
 	public function ssk_last_topic($tpl_loopname = 'last_topic'){
@@ -54,8 +45,11 @@ class sekmeli_son_konular
 		{
 		$izin = ' AND ' . $this->db->sql_in_set('forum_id', $forum_ary, true);
 		}	
-		if (($last_topic = $this->cache->get('_ssk_last_topic')) === false)
+		if (($last_topic = $this->cache->get('_ssklasttopic')) === false)
 		{
+		$last_topic = array();
+		
+		
 		$sql = 'SELECT topic_id, forum_id, topic_title, topic_time, topic_poster, topic_first_poster_name, topic_first_poster_colour
 				FROM ' . TOPICS_TABLE . '
 				WHERE topic_posts_approved = 1 '.$izin.'
@@ -83,13 +77,12 @@ class sekmeli_son_konular
 			);
 		}$this->db->sql_freeresult($result);
 			// cache 5 minutes
-			$this->cache->put('_ssk_last_topic', $last_topic, $this->config['ssk_cache']);
+			$this->cache->put('_ssklasttopic', $last_topic, $this->config['ssk_cache']);
 		}
 			foreach ($last_topic as $row)
 			{
-				if($number%2 == 0 ){$color = $this->color_1;}else{$color = $this->color_2;}
 				$this->template->assign_block_vars('new_topic',array(
-					'NUMBER'=>'<span class="list-number" style="background-color:'.$color.';">'.$number.'</span>',
+					'NUMBER'=>$number,
 					'U_VIEW_TOPIC'	=> append_sid("{$this->root_path}viewtopic.$this->phpEx", 'f=' . $row['forum_id'] . '&amp;t=' . $row['topic_id']),
 					'TOPIC_TITLE'	=> censor_text($row['topic_title']),
 					'TOPIC_ALT_TITLE'	=> censor_text($row['topic_alt_title']),
@@ -116,8 +109,9 @@ class sekmeli_son_konular
 		$izin = ' AND ' . $this->db->sql_in_set('forum_id', $forum_ary, true);
 		}
 			
-		if (($last_rply_topic = $this->cache->get('_ssk_last_rplytopic')) === false)
+		if (($last_rply_topic = $this->cache->get('_ssklastrplytopic')) === false)
 		{
+			$last_rply_topic = array();
 		$sql = 'SELECT topic_id, forum_id, topic_title, topic_last_post_id, topic_last_post_time, topic_posts_approved, topic_last_poster_id, topic_last_poster_name, topic_last_poster_colour
 				FROM ' . TOPICS_TABLE . '
 				WHERE  topic_posts_approved > 1 '.$izin.'
@@ -146,13 +140,12 @@ class sekmeli_son_konular
 			);		
 		}$this->db->sql_freeresult($result);
 			// cache 5 minutes
-			$this->cache->put('_ssk_last_rplytopic', $last_rply_topic, $this->config['ssk_cache']);
+			$this->cache->put('_ssklastrplytopic', $last_rply_topic, $this->config['ssk_cache']);
 		}
 			foreach ($last_rply_topic as $row)
 			{
-				if($number%2 == 0 ){$color = $this->color_1;}else{$color = $this->color_2;}
 				$this->template->assign_block_vars('reply_topic',array(
-				'NUMBER'=>'<span class="list-number" style="background-color:'.$color.';">'.$number.'</span>',
+				'NUMBER'=>$number,
 				'U_VIEW_TOPIC'	=> append_sid("{$this->root_path}viewtopic.$this->phpEx", 'f=' . $row['forum_id'] . '&amp;t=' . $row['topic_id']) . '#p' . $row['topic_last_post_id'],
 				'TOPIC_TITLE'	=> censor_text($row['topic_title']),
 				'TOPIC_ALT_TITLE'	=> censor_text($row['topic_alt_title']),
@@ -178,8 +171,9 @@ $limit = $this->config['ssk_wordlimit'];
 		$izin = ' AND ' . $this->db->sql_in_set('forum_id', $forum_ary, true);
 		}
 		$number = 1;
-		if (($top_read = $this->cache->get('_ssk_top_read')) === false)
-		{		
+		if (($top_read = $this->cache->get('_ssktopread')) === false)
+		{
+		$top_read = array();
 		$sql = 'SELECT topic_id, forum_id, topic_title, topic_views
 				FROM ' . TOPICS_TABLE . '
 				WHERE topic_posts_approved = 1 '.$izin.'
@@ -204,13 +198,12 @@ $limit = $this->config['ssk_wordlimit'];
 			);
 		}$this->db->sql_freeresult($result);
 		// cache 5 minutes
-		$this->cache->put('_ssk_top_read', $top_read, $this->config['ssk_cache']);
+		$this->cache->put('_ssktopread', $top_read, $this->config['ssk_cache']);
 		}
 		foreach ($top_read as $row)
 		{
-			if($number%2 == 0 ){$color = $this->color_1;}else{$color = $this->color_2;}
 			$this->template->assign_block_vars('read_topic',array(
-				'NUMBER'=>'<span class="list-number" style="background-color:'.$color.';">'.$number.'</span>',
+				'NUMBER'=>$number,
 				'U_VIEW_TOPIC'	=> append_sid("{$this->root_path}viewtopic.$this->phpEx", 'f=' . $row['forum_id'] . '&amp;t=' . $row['topic_id']),
 				'TOPIC_TITLE'	=> censor_text($row['topic_title']),
 				'TOPIC_ALT_TITLE'	=> censor_text($row['topic_alt_title']),
@@ -238,8 +231,9 @@ $limit = $this->config['ssk_wordlimit'];
 		}	
 
 	$pop = $this->config['hot_threshold'];
-		if (($top_reply = $this->cache->get('_ssk_top_reply')) === false)
+		if (($top_reply = $this->cache->get('_ssktopreply')) === false)
 		{
+	$top_reply = array();		
 	$sql = 'SELECT topic_id, forum_id, topic_title, topic_views, topic_last_post_time, topic_posts_approved
 			FROM ' . TOPICS_TABLE . "
 			WHERE topic_posts_approved > $pop".$izin.'
@@ -266,14 +260,13 @@ $limit = $this->config['ssk_wordlimit'];
 				);
 	}$this->db->sql_freeresult($result);
 			// cache 5 minutes
-			$this->cache->put('_ssk_top_reply', $top_reply, $this->config['ssk_cache']);
+			$this->cache->put('_ssktopreply', $top_reply, $this->config['ssk_cache']);
 		}
 		foreach ($top_reply as $row)
 		{
-			if($number%2 == 0 ){$color = $this->color_1;}else{$color = $this->color_2;}
 			$pop_topic = $row['topic_posts_approved']-1;
 			$this->template->assign_block_vars('pop_topic',array(
-			'NUMBER'=>'<span class="list-number" style="background-color:'.$color.';">'.$number.'</span>',
+			'NUMBER'=>$number,
 			'U_VIEW_TOPIC'	=> append_sid("{$this->root_path}viewtopic.$this->phpEx", 'f=' . $row['forum_id'] . '&amp;t=' . $row['topic_id']),
 			'TOPIC_TITLE'	=> censor_text($row['topic_title']),
 			'TOPIC_ALT_TITLE'	=> censor_text($row['topic_alt_title']),
@@ -291,8 +284,9 @@ $limit = $this->config['ssk_wordlimit'];
 	function ssk_top_post($tpl_loopname = 'top_post'){
 	if (!isset($this->config['ssk_topuserpost']) || !$this->config['ssk_topuserpost']){return;}
 		$number = 1;
-		if (($top_post = $this->cache->get('_ssk_top_user_post')) === false)
+		if (($top_post = $this->cache->get('_ssktopuserpost')) === false)
 		{
+			$top_post = array();
 			$sql = 'SELECT user_id,username,user_posts,user_colour
 				FROM ' . USERS_TABLE . '
 				WHERE user_posts > 0
@@ -307,13 +301,12 @@ $limit = $this->config['ssk_wordlimit'];
 				);
 			}$this->db->sql_freeresult($result);
 			// cache 5 minutes
-			$this->cache->put('_ssk_top_user_post', $top_post, $this->config['ssk_cache']);
+			$this->cache->put('_ssktopuserpost', $top_post, $this->config['ssk_cache']);
 		}
 		foreach ($top_post as $row)
 		{
-			if($number%2 == 0 ){$color = $this->color_1;}else{$color = $this->color_2;}
 			$this->template->assign_block_vars('user_post',array(
-			'NUMBER'=>'<span class="list-number" style="background-color:'.$color.';">'.$number.'</span>',
+			'NUMBER'=>$number,
 			'USER_NAME'	=> get_username_string('full',$row['user_id'],$row['username'],$row['user_colour']),
 			'POST'	=> sprintf($this->user->lang['USER_POST'], $row['user_posts']),
 			));
@@ -329,8 +322,9 @@ $limit = $this->config['ssk_wordlimit'];
 	function ssk_new_user($tpl_loopname = 'newuser'){
 	if (!isset($this->config['ssk_newuser']) || !$this->config['ssk_newuser']){return;}
 		$number = 1;
-		if (($new_user = $this->cache->get('_ssk_new_user')) === false)
+		if (($new_user = $this->cache->get('_ssknewuser')) === false)
 		{
+		$new_user = array();
 		$sql = 'SELECT user_id, user_type, user_regdate, username, user_colour
 					FROM ' . USERS_TABLE . '
 					WHERE user_type != 2
@@ -346,13 +340,12 @@ $limit = $this->config['ssk_wordlimit'];
 				);
 			}$this->db->sql_freeresult($result);
 			// cache 5 minutes
-			$this->cache->put('_ssk_new_user', $new_user, $this->config['ssk_cache']);
+			$this->cache->put('_ssknewuser', $new_user, $this->config['ssk_cache']);
 		}
 		foreach ($new_user as $row)
 		{
-			if($number%2 == 0 ){$color = $this->color_1;}else{$color = $this->color_2;}
 			$this->template->assign_block_vars('last_member',array(
-				'NUMBER'=>'<span class="list-number" style="background-color:'.$color.';">'.$number.'</span>',
+				'NUMBER'=>$number,
 				'USER_NAME'	=> get_username_string('full',$row['user_id'],$row['username'],$row['user_colour']),
 				'USER_REGDATE'	=>$this->user->format_date($row['user_regdate']),
 			));

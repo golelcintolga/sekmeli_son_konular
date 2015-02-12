@@ -12,7 +12,7 @@
 		<div id="user-post-panel" class="tabs-content-select">
 		<ul class="topiclist forums">
 			  <!-- BEGIN user_post -->
-			  <li class="row">{user_post.NUMBER}{user_post.USER_NAME} <small>{user_post.POST}</small></li>
+			  <li class="row"><span class="list-number">{user_post.NUMBER}</span>{user_post.USER_NAME} <small>{user_post.POST}</small></li>
 			  <!-- END user_post -->
 			</ul>
 		</div>
@@ -22,7 +22,7 @@
 		<div id="last-member-panel" class="tabs-content-select">
 		<ul class="topiclist forums">
 			  <!-- BEGIN last_member -->
-			  <li class="row">{last_member.NUMBER}{last_member.USER_NAME} <small>{last_member.USER_REGDATE}</small></li>
+			  <li class="row"><span class="list-number">{last_member.NUMBER}</span>{last_member.USER_NAME} <small>{last_member.USER_REGDATE}</small></li>
 			  <!-- END last_member -->
 			</ul>
 		</div>
@@ -52,7 +52,7 @@
 	<div  id="new_topic-panel" class="tabs-content">
 	<ul class="topiclist forums">
 		  <!-- BEGIN new_topic -->
-		  <li class="row">{new_topic.NUMBER}<a href="{new_topic.U_VIEW_TOPIC}" title="{new_topic.TOPIC_ALT_TITLE}">{new_topic.TOPIC_TITLE}</a>&nbsp;&nbsp;<small>{new_topic.USER_NAME} - {new_topic.TOPIC_TIME}</small></li>
+		  <li class="row"><span class="list-number">{new_topic.NUMBER}</span><a href="{new_topic.U_VIEW_TOPIC}" title="{new_topic.TOPIC_ALT_TITLE}">{new_topic.TOPIC_TITLE}</a>&nbsp;&nbsp;<small>{new_topic.USER_NAME} - {new_topic.TOPIC_TIME}</small></li>
 		  <!-- END new_topic -->
 	</ul>
 	</div>
@@ -62,7 +62,7 @@
 	<div id="reply_topic-panel" class="tabs-content">
 	<ul class="topiclist forums">
 		  <!-- BEGIN reply_topic -->
-		  <li class="row">{reply_topic.NUMBER}<a href="{reply_topic.U_VIEW_TOPIC}" title="{reply_topic.TOPIC_ALT_TITLE}">{reply_topic.TOPIC_TITLE}</a>&nbsp;&nbsp;<small>{reply_topic.USER_NAME} - {reply_topic.TOPIC_TIME}</small></li>
+		  <li class="row"><span class="list-number">{reply_topic.NUMBER}</span><a href="{reply_topic.U_VIEW_TOPIC}" title="{reply_topic.TOPIC_ALT_TITLE}">{reply_topic.TOPIC_TITLE}</a>&nbsp;&nbsp;<small>{reply_topic.USER_NAME} - {reply_topic.TOPIC_TIME}</small></li>
 		  <!-- END reply_topic -->
 		</ul>	
 	</div>
@@ -72,7 +72,7 @@
 	<div id="read_topic-panel" class="tabs-content">
 		<ul class="topiclist forums">
 		  <!-- BEGIN read_topic -->
-		  <li class="row">{read_topic.NUMBER}<a href="{read_topic.U_VIEW_TOPIC}" title="{read_topic.TOPIC_ALT_TITLE}">{read_topic.TOPIC_TITLE}</a>&nbsp;&nbsp;<small>{read_topic.TOPIC_READY}</small></li>
+		  <li class="row"><span class="list-number">{read_topic.NUMBER}</span><a href="{read_topic.U_VIEW_TOPIC}" title="{read_topic.TOPIC_ALT_TITLE}">{read_topic.TOPIC_TITLE}</a>&nbsp;&nbsp;<small>{read_topic.TOPIC_READY}</small></li>
 		  <!-- END read_topic -->
 		</ul>
 	</div>
@@ -82,7 +82,7 @@
 	<div id="pop_topic-panel" class="tabs-content">
 		<ul class="topiclist forums">
 		  <!-- BEGIN pop_topic -->
-		  <li class="row">{pop_topic.NUMBER}<a href="{pop_topic.U_VIEW_TOPIC}" title="{pop_topic.TOPIC_ALT_TITLE}">{pop_topic.TOPIC_TITLE}</a>&nbsp;&nbsp;<small>{pop_topic.TOPIC_REPLY}</small></li>
+		  <li class="row"><span class="list-number">{pop_topic.NUMBER}</span><a href="{pop_topic.U_VIEW_TOPIC}" title="{pop_topic.TOPIC_ALT_TITLE}">{pop_topic.TOPIC_TITLE}</a>&nbsp;&nbsp;<small>{pop_topic.TOPIC_REPLY}</small></li>
 		  <!-- END pop_topic -->
 		</ul>
 	</div>

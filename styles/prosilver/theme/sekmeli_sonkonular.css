@@ -13,6 +13,8 @@ select.tabs-select { height: 28px; font-size:14px; width: 100%;}
 #son_konular li.row:hover { background-color:#f5f5f5;}
 #son_konular li.row a {font-size:12px;}
 #son_konular li.row strong {color:#333; font-size: 13px}
+.tabs-content li:nth-child(even) .list-number, .tabs-content-select li:nth-child(even) .list-number { background-color:#383838;  }
+.tabs-content li:nth-child(odd) .list-number, .tabs-content-select li:nth-child(odd) .list-number { background-color:#00639E; }
 #son_konular small { color: #666; float: right; font-size: 11px; }
 .tabs-content, .tabs-content-select{ display:none; }
 .list-number { border-radius: 6px; color: #f5f5f5; display: inline-block; font-size: 11px; margin-right: 10px; padding: 3px 7px; }
