@@ -3,8 +3,8 @@
 	"type": "phpbb-extension",
 	"description": "Anasayfa da son konuları listeler. ( Displays last topics list on the index page. )",
 	"homepage": "https://github.com/golelcintolga/sekmeli_son_konular",
-	"version": "1.0.0",
-	"time": "2015-01-27",
+	"version": "1.0.1",
+	"time": "2015-02-16",
 		"keywords": ["phpbb", "last", "topic", "list"],
 	"license": "GPL-2.0",
 	"authors": [{
