@@ -176,7 +176,7 @@ $limit = $this->config['ssk_wordlimit'];
 		$top_read = array();
 		$sql = 'SELECT topic_id, forum_id, topic_title, topic_views
 				FROM ' . TOPICS_TABLE . '
-				WHERE topic_posts_approved = 1 '.$izin.'
+				WHERE topic_posts_approved >= 1 '.$izin.'
 				ORDER BY topic_views  DESC';
 		$result = $this->db->sql_query_limit($sql, $this->config['ssk_counter']);
 		while ($row = $this->db->sql_fetchrow($result)) {
@@ -236,7 +236,7 @@ $limit = $this->config['ssk_wordlimit'];
 	$top_reply = array();		
 	$sql = 'SELECT topic_id, forum_id, topic_title, topic_views, topic_last_post_time, topic_posts_approved
 			FROM ' . TOPICS_TABLE . "
-			WHERE topic_posts_approved > $pop".$izin.'
+			WHERE topic_posts_approved >= $pop".$izin.'
 			ORDER BY topic_posts_approved DESC';
 	$result = $this->db->sql_query_limit($sql, $this->config['ssk_counter']);
 	while ($row = $this->db->sql_fetchrow($result)) {
@@ -331,7 +331,6 @@ $limit = $this->config['ssk_wordlimit'];
 					ORDER BY user_regdate DESC';
 			$result = $this->db->sql_query_limit($sql, $this->config['ssk_counter']);
 			while ($row = $this->db->sql_fetchrow($result)) {
-				//if($number%2 == 1){$color = $this->rand[rand(0,7)];};
 				$new_user[$row['user_id']] = array(
 					'user_id' => $row['user_id'],
 					'username' => $row['username'],

@@ -15,11 +15,12 @@ namespace tlg\sekmeli_son_konular\acp;
 
 class sekmeli_son_konular_module
 {
-
+	var $u_action;
+	
 	function main($id, $mode)
 	{
-		global $config, $db, $user, $auth, $template, $cache;
-		global $phpbb_root_path, $phpbb_admin_path;
+		global $config, $template, $cache, $user;
+
 
 		add_form_key('acp_ssk');
 
@@ -45,12 +46,12 @@ class sekmeli_son_konular_module
 			set_config('ssk_wordlimit', request_var('ssk_wordlimit', 50));
 			set_config('ssk_cache', request_var('ssk_cache', 300));
 			
-			$cache->destroy('_ssk_last_topic');
-			$cache->destroy('_ssk_last_rplytopic');
-			$cache->destroy('_ssk_top_read');
-			$cache->destroy('_ssk_top_reply');
-			$cache->destroy('_ssk_top_user_post');
-			$cache->destroy('_ssk_new_user');
+			$cache->destroy('_ssklasttopic');
+			$cache->destroy('_ssklastrplytopic');
+			$cache->destroy('_ssktopread');
+			$cache->destroy('_ssktopreply');
+			$cache->destroy('_ssktopuserpost');
+			$cache->destroy('_ssknewuser');
 		
 			trigger_error($user->lang['UPDATE_CONFIG'] . adm_back_link($this->u_action));
 		}
@@ -66,6 +67,8 @@ class sekmeli_son_konular_module
 			'SSK_LOCATION'		=> $config['ssk_location'],
 			'SSK_WORDLIMIT'		=> $config['ssk_wordlimit'],
 			'SSK_CACHE'				=> $config['ssk_cache'],
+			
+			'U_ACTION'			=> $this->u_action,
 		));
 	}
 }

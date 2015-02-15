@@ -28,16 +28,12 @@ class listener implements EventSubscriberInterface
 	
 	/** @var \phpbb\template\template */
 	protected $template;
-	
-	/** @var\phpbb\user */
-	protected $user;
 
-	public function __construct(\tlg\sekmeli_son_konular\core\sekmeli_son_konular $functions, \phpbb\config\config $config, \phpbb\template\template $template, \phpbb\user $user)
+	public function __construct(\tlg\sekmeli_son_konular\core\sekmeli_son_konular $functions, \phpbb\config\config $config, \phpbb\template\template $template)
 	{
 		$this->ssk_functions = $functions;
 		$this->config = $config;
 		$this->template = $template;
-		$this->user = $user;
 	}
 	
 	static public function getSubscribedEvents()

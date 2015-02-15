@@ -15,17 +15,17 @@ class version_1_0_0 extends \phpbb\db\migration\migration
 	public function update_data()
 	{
 		return array(
-			array('config.add', array('ssk_index', '1')),
-			array('config.add', array('ssk_lasttopic', '1')),
-			array('config.add', array('ssk_lastrplytopic', '1')),
-			array('config.add', array('ssk_topread', '1')),
-			array('config.add', array('ssk_topreply', '1')),
-			array('config.add', array('ssk_topuserpost', '1')),
-			array('config.add', array('ssk_newuser', '1')),
-			array('config.add', array('ssk_counter', '5')),
-			array('config.add', array('ssk_location', '0')),
-			array('config.add', array('ssk_wordlimit', '50')),
-			array('config.add', array('ssk_cache', '300')),
+			array('config.add', array('ssk_index', 1)),
+			array('config.add', array('ssk_lasttopic', 1)),
+			array('config.add', array('ssk_lastrplytopic', 1)),
+			array('config.add', array('ssk_topread', 1)),
+			array('config.add', array('ssk_topreply', 1)),
+			array('config.add', array('ssk_topuserpost', 1)),
+			array('config.add', array('ssk_newuser', 1)),
+			array('config.add', array('ssk_counter', 5)),
+			array('config.add', array('ssk_location', 0)),
+			array('config.add', array('ssk_wordlimit', 50)),
+			array('config.add', array('ssk_cache', 300)),
 			// Add the ACP module
 			array('module.add', array('acp', 'ACP_CAT_DOT_MODS', 'ACP_SSK')),
 			array('module.add', array(

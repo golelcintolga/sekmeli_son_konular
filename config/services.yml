@@ -5,7 +5,6 @@ services:
             - @tlg.sekmeli_son_konular.functions
             - @config
             - @template
-            - @user
         tags:
             - { name: event.listener }
     tlg.sekmeli_son_konular.functions:
